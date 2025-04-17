@@ -44,7 +44,7 @@ export default function Home() {
       if (revealedQuestions.includes(index)) {
         return <div>?</div>;
       }
-      return <div>{index === 2 || index === 5 ? ":" : "-"}</div>;
+      return <div>{"-"}</div>;
     }
 
     return Array(10).fill(0).map((_, i) => (
