@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import "tailwindcss/preflight";
 @tailwind utilities;
 
 :root {
   --arcade-neon: #ff00ff;
   --arcade-glow: 0 0 7px #ff00ff, 0 0 10px #ff00ff, 0 0 21px #ff00ff;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: var(--font-press-start);
 }
 
 .logo-container {
@@ -39,7 +44,6 @@
 }
 
 body {
-  background-color: #000;
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     repeating-linear-gradient(
@@ -56,8 +60,6 @@ body {
       transparent 2px,
       transparent 20px
     );
-  color: #fff;
-  font-family: 'Press Start 2P', cursive;
 }
 
 .arcade-background {
@@ -218,7 +220,6 @@ body {
 .spin-button {
   margin-top: 2rem;
   padding: 1rem 2rem;
-  font-family: 'Press Start 2P', cursive;
   font-size: 1rem;
   color: #ff0;
   background: #000;
