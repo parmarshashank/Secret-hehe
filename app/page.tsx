@@ -17,7 +17,7 @@ export default function Home() {
     playSound('spin');
 
     // Set random spin durations for each digit
-    const baseDuration = 1000; // Base duration of 2 seconds
+    const baseDuration = 1000; // Base duration of 1 second
     const randomDurations = Array(8).fill(0).map((_, i) => {
       // Add increasing delay for each digit
       return baseDuration + (i * 500) + (Math.random() * 1000);
@@ -53,41 +53,41 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 relative overflow-hidden">
       {/* Animated background */}
       <div className="arcade-background"></div>
 
       {/* Main content container */}
-      <div className="relative z-10 flex flex-col items-center gap-12">
+      <div className="relative z-10 flex flex-col items-center gap-8 sm:gap-12">
         {/* Logo collaboration section */}
-        <div className="flex items-center justify-center gap-8 sm:gap-16">
-          <div className="relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48">
+        <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-16">
+          <div className="logo-container">
             <Image
               src="/images/vivilogo.png"
               alt="Vividhata Logo"
               width={192}
               height={192}
-              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
+              className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain hover:scale-110 transition-transform duration-300 vivi-logo"
               priority
             />
           </div>
           
           <span className="collaboration-x">×</span>
           
-          <div className="relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48">
+          <div className="logo-container">
             <Image
               src="/images/yuktilogo.png"
               alt="Yuktikula Logo"
-              width={192}
-              height={192}
-              className="w-[90%] h-[90%] object-contain hover:scale-110 transition-transform duration-300"
+              width={172}
+              height={172}
+              className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 object-contain hover:scale-110 transition-transform duration-300 yukti-logo"
               priority
             />
           </div>
         </div>
 
         {/* Question marks section */}
-        <div className="flex gap-4 justify-center my-8">
+        <div className="flex gap-2 sm:gap-4 justify-center my-4 sm:my-8">
           {[1, 2, 3, 4, 5, 6, 7].map((i) => (
             <span 
               key={i} 

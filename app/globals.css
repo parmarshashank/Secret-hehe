@@ -7,6 +7,28 @@
   --arcade-glow: 0 0 7px #ff00ff, 0 0 10px #ff00ff, 0 0 21px #ff00ff;
 }
 
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.logo-container img {
+  transition: all 0.3s ease;
+}
+
+.vivi-logo:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.6));
+  transform: scale(1.05);
+}
+
+.yukti-logo:hover {
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
+  transform: scale(1.05);
+}
+
 @keyframes pulse-grow {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -86,7 +108,7 @@ body {
 .countdown-container {
   display: flex;
   gap: 0.5rem;
-  padding: 2rem;
+  padding: 1rem;
   background: rgba(0, 0, 0, 0.9);
   border: 3px solid #ff0;
   border-radius: 1rem;
@@ -95,29 +117,56 @@ body {
     inset 0 0 20px rgba(255, 255, 0, 0.3);
 }
 
+@media (min-width: 640px) {
+  .countdown-container {
+    padding: 2rem;
+    gap: 0.75rem;
+  }
+}
+
 .time-group {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   align-items: center;
+}
+
+@media (min-width: 640px) {
+  .time-group {
+    gap: 0.5rem;
+  }
 }
 
 .time-separator {
   color: #ff0;
   text-shadow: 0 0 7px #ff0;
-  font-size: 2rem;
-  margin: 0 0.25rem;
+  font-size: 1.5rem;
+  margin: 0 0.15rem;
   animation: pulse 1s infinite;
+}
+
+@media (min-width: 640px) {
+  .time-separator {
+    font-size: 2rem;
+    margin: 0 0.25rem;
+  }
 }
 
 .digit-slot {
   position: relative;
-  width: 2.5rem;
-  height: 4rem;
+  width: 2rem;
+  height: 3rem;
   overflow: hidden;
   background: #000;
   border: 2px solid #ff0;
   border-radius: 0.5rem;
   box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+}
+
+@media (min-width: 640px) {
+  .digit-slot {
+    width: 2.5rem;
+    height: 4rem;
+  }
 }
 
 .digit-slot::before,
@@ -151,8 +200,15 @@ body {
   align-items: center;
   color: #ff0;
   text-shadow: 0 0 7px #ff0, 0 0 10px #ff0;
-  font-size: 2.5rem;
-  line-height: 4rem;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+@media (min-width: 640px) {
+  .digit-strip {
+    font-size: 2.5rem;
+    line-height: 4rem;
+  }
 }
 
 .digit-strip.spinning {
@@ -193,18 +249,30 @@ body {
 }
 
 .question-mark {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #0ff;
   text-shadow: 0 0 7px #0ff, 0 0 10px #0ff, 0 0 21px #0ff;
   animation: flicker 1.5s infinite;
   display: inline-block;
 }
 
+@media (min-width: 640px) {
+  .question-mark {
+    font-size: 2rem;
+  }
+}
+
 .collaboration-x {
-  font-size: 4rem;
+  font-size: 3rem;
   color: #f0f;
   text-shadow: 0 0 7px #f0f, 0 0 10px #f0f, 0 0 21px #f0f;
   animation: pulse 2s infinite;
   transform: rotate(45deg);
   display: inline-block;
+}
+
+@media (min-width: 640px) {
+  .collaboration-x {
+    font-size: 4rem;
+  }
 }
