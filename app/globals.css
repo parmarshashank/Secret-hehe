@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+:root {
+  --arcade-neon: #ff00ff;
+  --arcade-glow: 0 0 7px #ff00ff, 0 0 10px #ff00ff, 0 0 21px #ff00ff;
+}
+
+@keyframes pulse-grow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-pulse-grow {
+  animation: pulse-grow 2s ease-in-out infinite;
+}
+
+body {
+  background-color: #000;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 0, 255, 0.1) 0px,
+      rgba(255, 0, 255, 0.1) 2px,
+      transparent 2px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 255, 255, 0.1) 0px,
+      rgba(0, 255, 255, 0.1) 2px,
+      transparent 2px,
+      transparent 20px
+    );
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.arcade-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.8) 100%),
+    repeating-linear-gradient(
+      to right,
+      rgba(255, 0, 255, 0.1),
+      rgba(0, 255, 255, 0.1) 50%
+    );
+  background-size: 100% 100%, 400px 400px;
+  animation: background-scroll 20s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes background-scroll {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 0 0, -400px 0; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes slot-machine {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-1000%); }
+}
+
+.arcade-text {
+  color: var(--arcade-neon);
+  text-shadow: var(--arcade-glow);
+  animation: flicker 2s infinite;
+}
+
+.countdown-container {
+  display: flex;
+  gap: 0.5rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.9);
+  border: 3px solid #ff0;
+  border-radius: 1rem;
+  box-shadow: 
+    0 0 10px #ff0,
+    inset 0 0 20px rgba(255, 255, 0, 0.3);
+}
+
+.time-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.time-separator {
+  color: #ff0;
+  text-shadow: 0 0 7px #ff0;
+  font-size: 2rem;
+  margin: 0 0.25rem;
+  animation: pulse 1s infinite;
+}
+
+.digit-slot {
+  position: relative;
+  width: 2.5rem;
+  height: 4rem;
+  overflow: hidden;
+  background: #000;
+  border: 2px solid #ff0;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+}
+
+.digit-slot::before,
+.digit-slot::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 25px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.digit-slot::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%);
+}
+
+.digit-slot::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%);
+}
+
+.digit-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ff0;
+  text-shadow: 0 0 7px #ff0, 0 0 10px #ff0;
+  font-size: 2.5rem;
+  line-height: 4rem;
+}
+
+.digit-strip.spinning {
+  animation: slot-machine 0.5s linear infinite;
+}
+
+.spin-button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: #ff0;
+  background: #000;
+  border: 3px solid #ff0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-shadow: 0 0 7px #ff0;
+  box-shadow: 
+    0 0 10px #ff0,
+    inset 0 0 20px rgba(255, 255, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.spin-button:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 20px #ff0,
+    inset 0 0 30px rgba(255, 255, 0, 0.3);
+}
+
+.spin-button:active {
+  transform: scale(0.95);
+}
+
+.spin-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.question-mark {
+  font-size: 2rem;
+  color: #0ff;
+  text-shadow: 0 0 7px #0ff, 0 0 10px #0ff, 0 0 21px #0ff;
+  animation: flicker 1.5s infinite;
+  display: inline-block;
+}
+
+.collaboration-x {
+  font-size: 4rem;
+  color: #f0f;
+  text-shadow: 0 0 7px #f0f, 0 0 10px #f0f, 0 0 21px #f0f;
+  animation: pulse 2s infinite;
+  transform: rotate(45deg);
+  display: inline-block;
+}
