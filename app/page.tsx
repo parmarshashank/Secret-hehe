@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { useEffect, useState, useCallback } from "react";
+import { useState } from "react";
 import { useSound } from "./hooks/useSound";
 
 export default function Home() {
